@@ -2,10 +2,11 @@ import com.sun.jna.Library;
 import com.sun.jna.Native;
 import com.sun.jna.Platform;
 import com.sun.jna.ptr.IntByReference;
+import com.sun.jna.win32.StdCallLibrary;
 
 public class Main {
     // Windows용 JNA 인터페이스
-    public interface Kernel32 extends Library {
+    public interface Kernel32 extends StdCallLibrary {
         Kernel32 INSTANCE = Native.load("kernel32", Kernel32.class);
         int GetConsoleMode(int hConsoleHandle, IntByReference lpMode);
         int SetConsoleMode(int hConsoleHandle, int dwMode);
