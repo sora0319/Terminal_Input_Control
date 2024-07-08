@@ -32,6 +32,32 @@ public class keyLisenerGlobal implements NativeKeyListener {
             }
             System.exit(0);
         }
+
+        switch (e.getKeyCode()) {
+            case NativeKeyEvent.VC_UP:
+                System.out.println("Up arrow key pressed");
+                break;
+            case NativeKeyEvent.VC_DOWN:
+                System.out.println("Down arrow key pressed");
+                break;
+            case NativeKeyEvent.VC_LEFT:
+                System.out.println("Left arrow key pressed");
+                break;
+            case NativeKeyEvent.VC_RIGHT:
+                System.out.println("Right arrow key pressed");
+                break;
+            case NativeKeyEvent.VC_ESCAPE:
+                System.out.println("ESC key pressed. Exiting...");
+                try {
+                    GlobalScreen.unregisterNativeHook();
+                } catch (NativeHookException ex) {
+                    ex.printStackTrace();
+                }
+                System.exit(0);
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
